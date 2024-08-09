@@ -1,27 +1,23 @@
 package com.springboot.app.models;
 
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
-@Getter
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Product {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int prodId;
-    @Setter
     private String prodName;
-    @Setter
-    private int prodPrice;
+    private double prodPrice;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "prodId=" + prodId +
-                ", prodName='" + prodName + '\'' +
-                ", prodPrice=" + prodPrice +
-                '}';
-    }
 }
